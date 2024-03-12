@@ -2,10 +2,9 @@
     <div class="nav-container">
         <a href="/" class="nav-logo" title="Back to Homepage">Группа котов</a>
         <div class="nav-links">
-            <a href="/about" class="link">Обо мне</a>
-            <a href="/blog" class="link">Блог</a>
-            <a href="/projects" class="link">Портфолио</a>
-            <a href="/contact" class="link">Контакты</a>
+            {#if link.isShow}
+            <a href={link.href} class="link">{link.title}</a>
+            {/if}
         </div>
     </div>
 </nav>
@@ -14,7 +13,35 @@
     <!--Pages will be injected below-->
     <slot></slot>
 </div>
-
+<script>
+    const nav = [
+        {
+            title:'Обо мне',
+            href:'/about',
+            isShow: true,
+        },
+        {
+            title:'Блог',
+            href:'/blog',
+            isShow: true,
+        },
+        {
+            title:'Портфолио',
+            href:'/project',
+            isShow: true,
+        },
+        {
+            title:'Контакты',
+            href:'/contact',
+            isShow: true,
+        },
+        {
+            title:'temp',
+            href:'/temp',
+            isShow: false,
+        },
+    ]
+</script>
 <style>
     .container {
         max-width: 1400px;
